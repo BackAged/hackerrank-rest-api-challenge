@@ -131,6 +131,8 @@ func getIOTDeviceFromAPI(
 			}
 
 			resChan <- filterDeviceByParent(apiResp.Data, parentID)
+		case <-ctx.Done():
+			return nil
 		}
 	}
 }
